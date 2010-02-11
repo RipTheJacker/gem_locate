@@ -5,43 +5,41 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "gem_locate"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "manbehindtheman@kabari.name"
+    gem.summary = %Q{Same as 'gem search' but search description and summary also}
+    gem.description = %Q{Searches gems by name, summary, and description in case you want to find a gem by what it is doing rather than it's name.}
+    gem.email = "kabari@gmail.com"
     gem.homepage = "http://github.com/kabari/gem_locate"
     gem.authors = ["Kabari Hendrick"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.files = FileList["lib/rubygems_plugin.rb",
+                         "lib/commands/locate.rb",
+                         "lib/gem_extension/source_index.rb",
+                         "README.rdoc",
+                         "LICENSE",
+                         "VERSION",
+                         "Rakefile"]
+    gem.test_files = []
+    gem.executables = []
+    gem.required_rubygems_version = Gem::Requirement.new(">= 1.3.5") if gem.respond_to? :required_rubygems_version=
+    gem.post_install_message = <<MESSAGE
+
+========================================================================
+
+           Thanks for installing Gem Locate! You can now run:
+
+    gem locate STRING   Same as 'gem search' but search description and summary also
+    
+========================================================================
+
+MESSAGE
+    
     gem.add_development_dependency "yard", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-begin
-  require 'rcov/rcovtask'
-  Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/test_*.rb'
-    test.verbose = true
-  end
-rescue LoadError
-  task :rcov do
-    abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
-  end
-end
-
-task :test => :check_dependencies
-
-task :default => :test
+task :default => :check_dependencies
 
 begin
   require 'yard'
