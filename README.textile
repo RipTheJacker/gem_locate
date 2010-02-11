@@ -2,6 +2,8 @@ h1. Gem Locate
 
 Searches gems by name, summary, and description in case you want to find a gem by what it is doing rather than it's name. Currently this only searches your *local* gems.
 
+_I think someone made something like this before...but I couldn't find it_
+
 h2. Install
 
 @[sudo] gem install gem_locate@
