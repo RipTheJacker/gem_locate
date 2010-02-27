@@ -8,8 +8,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "gem_locate"
-    gem.summary = %Q{Same as 'gem search' but searches description and summary also}
-    gem.description = %Q{Searches gems by name, summary, and description in case you want to find a gem by what it is doing rather than it's name.}
+    gem.summary = %Q{Use this instead: http://rubygems.org/gems/rubypan}
+    gem.description = %Q{Use this instead: http://rubygems.org/gems/rubypan}
     gem.email = "kabari@gmail.com"
     gem.homepage = "http://github.com/kabari/gem_locate"
     gem.authors = ["Kabari Hendrick"]
